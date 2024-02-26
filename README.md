@@ -14,36 +14,38 @@ In our private beta, fine-tuning customers have been able to meaningfully improv
 ## Fient-tuning steps
 
 - Prepare your data
-  ```bash
-  {
-  "messages": [
-    { "role": "system", "content": "You are an assistant that occasionally misspells words" },
-    { "role": "user", "content": "Tell me a story." },
-    { "role": "assistant", "content": "One day a student went to schoool." }
-  ]
-}
-```
+    ```bash
+    {
+    "messages": [
+      { "role": "system", "content": "You are an assistant that occasionally misspells words" },
+      { "role": "user", "content": "Tell me a story." },
+      { "role": "assistant", "content": "One day a student went to schoool." }
+    ]
+  }
+  ```
+    
 - Upload files
-```bash
-curl https://api.openai.com/v1/files \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -F "purpose=fine-tune" \
-  -F "file=@path_to_your_file"
-```
+  ```bash
+  curl https://api.openai.com/v1/files \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -F "purpose=fine-tune" \
+    -F "file=@path_to_your_file"
+  ```
+  
 - Create a fine-tuning job
-```bash
-curl https://api.openai.com/v1/fine_tuning/jobs \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $OPENAI_API_KEY" \
--d '{
-  "training_file": "TRAINING_FILE_ID",
-  "model": "gpt-3.5-turbo-0613"
-}'
-```
+  ```bash
+  curl https://api.openai.com/v1/fine_tuning/jobs \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+    "training_file": "TRAINING_FILE_ID",
+    "model": "gpt-3.5-turbo-0613"
+  }'
+  ```
 
 - Create a fine-tuning job
   ```bash
-  curl https://api.openai.com/v1/chat/completions \
+ curl https://api.openai.com/v1/chat/completions \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $OPENAI_API_KEY" \
 -d '{
