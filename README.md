@@ -45,22 +45,22 @@ In our private beta, fine-tuning customers have been able to meaningfully improv
 
 - Create a fine-tuning job
   ```bash
- curl https://api.openai.com/v1/chat/completions \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $OPENAI_API_KEY" \
--d '{
-  "model": "ft:gpt-3.5-turbo:org_id",
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are an assistant that occasionally misspells words"
-    },
-    {
-      "role": "user",
-      "content": "Hello! What is fine-tuning?"
-    }
-  ]
-}'
+     curl https://api.openai.com/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $OPENAI_API_KEY" \
+    -d '{
+      "model": "ft:gpt-3.5-turbo:org_id",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an assistant that occasionally misspells words"
+        },
+        {
+          "role": "user",
+          "content": "Hello! What is fine-tuning?"
+        }
+      ]
+    }'
 
 ```
  
